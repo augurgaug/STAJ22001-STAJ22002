@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyApi.Business;
+using MyApi.Business.UserServ;
+
 using MyApi.Users;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -27,7 +28,7 @@ namespace MyApi.Users
             {
                 return Conflict(new { message = "Kullanıcı adı daha önce alınmış!" });
             }
-            return CreatedAtAction("GetUser", new { id = newUser.Id }, newUser);
+            return CreatedAtAction("GetUser", new { id = newUser.UserId }, newUser);
         }
 
         [HttpGet("{id}")]

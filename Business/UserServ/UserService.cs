@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MyApi.Business
+namespace MyApi.Business.UserServ
 {
     public class UserService
     {
