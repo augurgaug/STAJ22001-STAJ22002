@@ -12,8 +12,8 @@ using MyApi.Data;
 namespace MyApi.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20240714123610_UpdateUserTable")]
-    partial class UpdateUserTable
+    [Migration("20240719132406_CreateCustomerTable")]
+    partial class CreateCustomerTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,13 +25,38 @@ namespace MyApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MyApi.Users.User", b =>
+            modelBuilder.Entity("MyApi.Customers.Customer", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int?>("CustomerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("CustomerId"));
+
+                    b.Property<string>("Adress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CustomerId");
+
+                    b.ToTable("Customers");
+                });
+
+            modelBuilder.Entity("MyApi.Users.User", b =>
+                {
+                    b.Property<int?>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("UserId"));
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -51,7 +76,7 @@ namespace MyApi.Migrations
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("Users");
                 });

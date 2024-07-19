@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MyApi.Data;
-using MyApi.Business;
+using MyApi.Business.UserServ;
+using MyApi.Business.CustomerServ;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<CustomerService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
