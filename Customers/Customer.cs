@@ -6,7 +6,8 @@ namespace MyApi.Customers
         public string? Name { get; set; }
         public string? LastName { get; set; }
         public string? Email { get; set; }
-        public string? Adress { get; set; }
+        public string? TelNo { get; set; }
+        public string? Address { get; set; }
 
 
     }

@@ -42,7 +42,14 @@ namespace MyApi.Customers
             return Ok(customer);
         }
 
-      
+        [HttpGet]
+        public async Task<ActionResult<List<Customer>>> GetCustomers()
+        {
+            var customers = await _customerService.GetCustomers();
+            return Ok(customers);
+
+        }
+        
 
     }
 }

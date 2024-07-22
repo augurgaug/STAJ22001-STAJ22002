@@ -35,6 +35,10 @@ namespace MyApi.Business.CustomerServ
             return customer ?? null;
         }
 
+        public async Task<List<Customer>> GetCustomers()
+        {
+            return await _context.Customers.ToListAsync();
+        }
        
     }
 }
