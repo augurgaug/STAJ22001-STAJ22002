@@ -12,7 +12,7 @@ using MyApi.Data;
 namespace MyApi.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20240722111228_UpdateCustomerTable")]
+    [Migration("20240723082234_UpdateCustomerTable")]
     partial class UpdateCustomerTable
     {
         /// <inheritdoc />
@@ -33,19 +33,43 @@ namespace MyApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("CustomerId"));
 
-                    b.Property<string>("Address")
+                    b.Property<string>("Banka")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BinaNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DaireNo")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Iban")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Il")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ilce")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mahalle")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Sokak")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("TelNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ulke")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CustomerId");

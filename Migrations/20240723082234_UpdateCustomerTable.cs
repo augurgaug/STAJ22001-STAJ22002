@@ -20,7 +20,15 @@ namespace MyApi.Migrations
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TelNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Ulke = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Il = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Ilce = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Mahalle = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Sokak = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BinaNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DaireNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Banka = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Iban = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
