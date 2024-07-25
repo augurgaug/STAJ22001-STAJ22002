@@ -49,7 +49,27 @@ namespace MyApi.Customers
             return Ok(customers);
 
         }
-        
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCustomer(int id)
+        {
+            var result = await _customerService.DeleteCustomer(id);
+            if (!result)
+            {
+                return NotFound();
+            }
+            return NoContent();
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateCustomer(int id, Customer updatedCustomer)
+        {
+            var result = await _customerService.UpdateCustomer(id, updatedCustomer);
+            if (!result)
+            {
+                return NotFound();
+            }
+            return NoContent();
+        }
 
     }
 }
