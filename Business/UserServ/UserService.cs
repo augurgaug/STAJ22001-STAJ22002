@@ -48,5 +48,11 @@ namespace MyApi.Business.UserServ
                 .FirstOrDefaultAsync(u => u.Email == forgotUser.Email);
             return user ?? null; 
         }
+
+
+        public async Task<List<User>> GetUsers()
+        {
+            return await _context.Users.ToListAsync();
+        }
     }
 }

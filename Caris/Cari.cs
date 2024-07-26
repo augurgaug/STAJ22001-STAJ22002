@@ -1,8 +1,8 @@
-namespace MyApi.Customers
+namespace MyApi.Caris
 {
-    public class Customer
+    public class Cari
     {
-        public int? CustomerId { get; set; }
+        public int? CariId { get; set; }
         public string? Name { get; set; }
         public string? LastName { get; set; }
         public string? Email { get; set; }

@@ -22,13 +22,13 @@ namespace MyApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MyApi.Customers.Customer", b =>
+            modelBuilder.Entity("MyApi.Caris.Cari", b =>
                 {
-                    b.Property<int?>("CustomerId")
+                    b.Property<int?>("CariId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("CustomerId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("CariId"));
 
                     b.Property<string>("Banka")
                         .HasColumnType("nvarchar(max)");
@@ -69,9 +69,9 @@ namespace MyApi.Migrations
                     b.Property<string>("Ulke")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CustomerId");
+                    b.HasKey("CariId");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Caris");
                 });
 
             modelBuilder.Entity("MyApi.Users.User", b =>

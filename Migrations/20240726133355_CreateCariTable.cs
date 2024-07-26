@@ -5,16 +5,16 @@
 namespace MyApi.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateCustomerTable : Migration
+    public partial class CreateCariTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Customers",
+                name: "Caris",
                 columns: table => new
                 {
-                    CustomerId = table.Column<int>(type: "int", nullable: false)
+                    CariId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -32,7 +32,7 @@ namespace MyApi.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Customers", x => x.CustomerId);
+                    table.PrimaryKey("PK_Caris", x => x.CariId);
                 });
 
             migrationBuilder.CreateTable(
@@ -58,7 +58,7 @@ namespace MyApi.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Customers");
+                name: "Caris");
 
             migrationBuilder.DropTable(
                 name: "Users");
