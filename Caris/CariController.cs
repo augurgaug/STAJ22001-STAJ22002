@@ -60,6 +60,16 @@ namespace MyApi.Caris
             }
             return NoContent();
         }
+        [HttpPut("carii/{id}")]
+        public async Task<IActionResult> UpdateCarii(int id, Cari updatedCarii)
+        {
+            var result = await _cariService.UpdateCarii(id, updatedCarii);
+            if (!result)
+            {
+                return NotFound();
+            }
+            return NoContent();
+        }
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCari(int id, Cari updatedCari)
         {
@@ -70,6 +80,5 @@ namespace MyApi.Caris
             }
             return NoContent();
         }
-
     }
 }

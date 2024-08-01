@@ -12,8 +12,8 @@ using MyApi.Data;
 namespace MyApi.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20240726133355_CreateCariTable")]
-    partial class CreateCariTable
+    [Migration("20240801134035_UpdateCariTable")]
+    partial class UpdateCariTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,11 +33,20 @@ namespace MyApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("CariId"));
 
+                    b.Property<string>("Aciklama")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Alacak")
+                        .HasColumnType("int");
+
                     b.Property<string>("Banka")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BinaNo")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Borc")
+                        .HasColumnType("int");
 
                     b.Property<string>("DaireNo")
                         .HasColumnType("nvarchar(max)");
@@ -60,10 +69,19 @@ namespace MyApi.Migrations
                     b.Property<string>("Mahalle")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("Miktar")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("OdemeTipi")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Sokak")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tarih")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TelNo")

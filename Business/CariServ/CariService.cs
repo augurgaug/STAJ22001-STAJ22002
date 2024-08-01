@@ -73,6 +73,28 @@ namespace MyApi.Business.CariServ
             cari.DaireNo = updatedCari.DaireNo;
             cari.Banka = updatedCari.Banka;
             cari.Iban = updatedCari.Iban;
+           
+
+            _context.Caris.Update(cari);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> UpdateCarii(int id, Cari updatedCarii)
+        {
+            var cari = await _context.Caris.FindAsync(id);
+            if (cari == null)
+            {
+                return false;
+            }
+
+
+            cari.Borc = updatedCarii.Borc;
+            cari.Alacak = updatedCarii.Alacak;
+            cari.Tarih = updatedCarii.Tarih;
+            cari.OdemeTipi= updatedCarii.OdemeTipi;
+            cari.Miktar=    updatedCarii.Miktar;
+            cari.Aciklama = updatedCarii.Aciklama;
 
             _context.Caris.Update(cari);
             await _context.SaveChangesAsync();

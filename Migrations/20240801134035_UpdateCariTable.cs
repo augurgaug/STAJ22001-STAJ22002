@@ -5,7 +5,7 @@
 namespace MyApi.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateCariTable : Migration
+    public partial class UpdateCariTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -28,7 +28,13 @@ namespace MyApi.Migrations
                     BinaNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DaireNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Banka = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Iban = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Iban = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Alacak = table.Column<int>(type: "int", nullable: true),
+                    Borc = table.Column<int>(type: "int", nullable: true),
+                    Tarih = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OdemeTipi = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Miktar = table.Column<int>(type: "int", nullable: true),
+                    Aciklama = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
