@@ -1,3 +1,4 @@
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -5,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MyApi.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateCariTable : Migration
+    public partial class UpdateFinanceTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -42,6 +43,23 @@ namespace MyApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Finances",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    cari_id = table.Column<int>(type: "int", nullable: true),
+                    odeme_tipi = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    miktar = table.Column<decimal>(type: "decimal(18,8)", nullable: true),
+                    aciklama = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    tarih = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Finances", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -65,6 +83,9 @@ namespace MyApi.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Caris");
+
+            migrationBuilder.DropTable(
+                name: "Finances");
 
             migrationBuilder.DropTable(
                 name: "Users");

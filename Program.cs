@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using MyApi.Data;
 using MyApi.Business.UserServ;
 using MyApi.Business.CariServ;
+using MyApi.Business.FinanceServ;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,7 @@ builder.Services.AddDbContext<MyDbContext>(options =>
 
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<CariService>();
+builder.Services.AddScoped<FinanceService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

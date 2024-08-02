@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MyApi.Users;
 using MyApi.Caris;
+using MyApi.Finances;
 
 namespace MyApi.Data
 {
@@ -12,5 +13,9 @@ namespace MyApi.Data
 
         public DbSet<User> Users { get; set; }
         public DbSet<Cari> Caris { get; set; }
+        public DbSet<Finance> Finances { get; set; }
+
+
+
     }
 }
