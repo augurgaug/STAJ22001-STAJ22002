@@ -18,7 +18,7 @@ namespace MyApi.Users
             _userService = userService;
         }
 
-      
+
 
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
@@ -48,9 +48,9 @@ namespace MyApi.Users
             var user = await _userService.Login(loginUser);
             if (user == null)
             {
-                return Unauthorized(); 
+                return Unauthorized();
             }
-            return Ok(user); 
+            return Ok(user);
         }
 
         [HttpPost("forgot")]
@@ -62,6 +62,14 @@ namespace MyApi.Users
                 return Unauthorized();
             }
             return Ok(user);
+        }
+
+
+        [HttpGet]
+        public async Task<ActionResult<List<User>>> GetUsers()
+        {
+            var users = await _userService.GetUsers();
+            return Ok(users);
         }
     }
 }
