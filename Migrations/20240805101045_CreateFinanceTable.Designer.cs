@@ -12,8 +12,8 @@ using MyApi.Data;
 namespace MyApi.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20240802151352_UpdateFinanceTable")]
-    partial class UpdateFinanceTable
+    [Migration("20240805101045_CreateFinanceTable")]
+    partial class CreateFinanceTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,70 +27,58 @@ namespace MyApi.Migrations
 
             modelBuilder.Entity("MyApi.Caris.Cari", b =>
                 {
-                    b.Property<int?>("CariId")
+                    b.Property<int?>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("CariId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("id"));
 
-                    b.Property<string>("Aciklama")
+                    b.Property<decimal?>("alacak")
+                        .HasColumnType("decimal(18, 8)");
+
+                    b.Property<string>("banka")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Alacak")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Banka")
+                    b.Property<string>("bina_no")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BinaNo")
+                    b.Property<decimal?>("borc")
+                        .HasColumnType("decimal(18, 8)");
+
+                    b.Property<string>("daire_no")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Borc")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DaireNo")
+                    b.Property<string>("email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("iban")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Iban")
+                    b.Property<string>("il")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Il")
+                    b.Property<string>("ilce")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Ilce")
+                    b.Property<string>("last_name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("mahalle")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Mahalle")
+                    b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Miktar")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
+                    b.Property<string>("sokak")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OdemeTipi")
+                    b.Property<string>("tel_no")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Sokak")
+                    b.Property<string>("ulke")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Tarih")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TelNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Ulke")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CariId");
+                    b.HasKey("id");
 
                     b.ToTable("Caris");
                 });
@@ -125,31 +113,28 @@ namespace MyApi.Migrations
 
             modelBuilder.Entity("MyApi.Users.User", b =>
                 {
-                    b.Property<int?>("UserId")
+                    b.Property<int?>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("UserId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("id"));
 
-                    b.Property<string>("Email")
+                    b.Property<string>("email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("last_name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LoginKey")
+                    b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("password")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("user_name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserId");
+                    b.HasKey("id");
 
                     b.ToTable("Users");
                 });

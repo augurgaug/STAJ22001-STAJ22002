@@ -28,7 +28,7 @@ namespace MyApi.Caris
             {
                 return Conflict(new { message = "asd!" });
             }
-            return CreatedAtAction("GetCari", new { id = newCari.CariId }, newCari);
+            return CreatedAtAction("GetCari", new { id = newCari.id }, newCari);
         }
 
         [HttpGet("{id}")]

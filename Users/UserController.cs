@@ -28,7 +28,7 @@ namespace MyApi.Users
             {
                 return Conflict(new { message = "Kullanıcı adı daha önce alınmış!" });
             }
-            return CreatedAtAction("GetUser", new { id = newUser.UserId }, newUser);
+            return CreatedAtAction("GetUser", new { id = newUser.id }, newUser);
         }
 
         [HttpGet("{id}")]

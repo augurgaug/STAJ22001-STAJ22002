@@ -19,7 +19,7 @@ namespace MyApi.Business.CariServ
 
         public async Task<Cari?> PostCari(Cari cari)
         {
-            var existingCari = await _context.Caris.FirstOrDefaultAsync(u => u.Name == cari.Name && u.LastName == cari.LastName);
+            var existingCari = await _context.Caris.FirstOrDefaultAsync(u => u.name == cari.name && u.last_name == cari.last_name);
             if (existingCari != null)
             {
                 return null;
@@ -42,7 +42,7 @@ namespace MyApi.Business.CariServ
 
         public async Task<bool> DeleteCari(int id)
         {
-            var cari = await _context.Caris.FirstOrDefaultAsync(c => c.CariId == id);
+            var cari = await _context.Caris.FirstOrDefaultAsync(c => c.id == id);
             if (cari == null)
             {
                 return false;
@@ -60,19 +60,19 @@ namespace MyApi.Business.CariServ
                 return false;
             }
 
-            cari.Name = updatedCari.Name;
-            cari.LastName = updatedCari.LastName;
-            cari.Email = updatedCari.Email;
-            cari.TelNo = updatedCari.TelNo;
-            cari.Ulke = updatedCari.Ulke;
-            cari.Il = updatedCari.Il;
-            cari.Ilce = updatedCari.Ilce;
-            cari.Mahalle = updatedCari.Mahalle;
-            cari.Sokak = updatedCari.Sokak;
-            cari.BinaNo = updatedCari.BinaNo;
-            cari.DaireNo = updatedCari.DaireNo;
-            cari.Banka = updatedCari.Banka;
-            cari.Iban = updatedCari.Iban;
+            cari.name = updatedCari.name;
+            cari.last_name = updatedCari.last_name;
+            cari.email = updatedCari.email;
+            cari.tel_no = updatedCari.tel_no;
+            cari.ulke = updatedCari.ulke;
+            cari.il = updatedCari.il;
+            cari.ilce = updatedCari.ilce;
+            cari.mahalle = updatedCari.mahalle;
+            cari.sokak = updatedCari.sokak;
+            cari.bina_no = updatedCari.bina_no;
+            cari.daire_no = updatedCari.daire_no;
+            cari.banka = updatedCari.banka;
+            cari.iban = updatedCari.iban;
 
 
             _context.Caris.Update(cari);
@@ -89,12 +89,9 @@ namespace MyApi.Business.CariServ
             }
 
 
-            cari.Borc = updatedCarii.Borc;
-            cari.Alacak = updatedCarii.Alacak;
-            cari.Tarih = updatedCarii.Tarih;
-            cari.OdemeTipi = updatedCarii.OdemeTipi;
-            cari.Miktar = updatedCarii.Miktar;
-            cari.Aciklama = updatedCarii.Aciklama;
+            cari.borc = updatedCarii.borc;
+            cari.alacak = updatedCarii.alacak;
+
 
             _context.Caris.Update(cari);
             await _context.SaveChangesAsync();

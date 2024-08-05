@@ -16,6 +16,22 @@ namespace MyApi.Data
         public DbSet<Finance> Finances { get; set; }
 
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Finance>()
+                .Property(f => f.miktar)
+                .HasColumnType("decimal(18, 8)");
 
+
+
+            modelBuilder.Entity<Cari>()
+                .Property(c => c.borc )
+                .HasColumnType("decimal(18, 8)");
+
+            modelBuilder.Entity<Cari>()
+                .Property(c => c.alacak)
+                .HasColumnType("decimal(18, 8)");
+
+        }
     }
 }

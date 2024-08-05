@@ -2,27 +2,24 @@ namespace MyApi.Caris
 {
     public class Cari
     {
-        public int? CariId { get; set; }
-        public string? Name { get; set; }
-        public string? LastName { get; set; }
-        public string? Email { get; set; }
-        public string? TelNo { get; set; }
+        public int? id { get; set; }
+        public string? name { get; set; }
+        public string? last_name { get; set; }
+        public string? email { get; set; }
+        public string? tel_no { get; set; }
 
-        public string? Ulke { get; set; }
-        public string? Il { get; set; }
-        public string? Ilce { get; set; }
-        public string? Mahalle { get; set; }
-        public string? Sokak { get; set; }
-        public string? BinaNo { get; set; }
-        public string? DaireNo { get; set; }
+        public string? ulke { get; set; }
+        public string? il { get; set; }
+        public string? ilce { get; set; }
+        public string? mahalle { get; set; }
+        public string? sokak { get; set; }
+        public string? bina_no { get; set; }
+        public string? daire_no { get; set; }
 
-        public string? Banka { get; set; }
-        public string? Iban { get; set; }
-        public int? Alacak { get; set; } = 0;
-        public int? Borc { get; set; } = 0;
-        public string? Tarih { get; set; }
-        public string? OdemeTipi { get; set; }
-        public int? Miktar { get; set; }
-        public string? Aciklama { get; set; }
+        public string? banka { get; set; }
+        public string? iban { get; set; }
+        public decimal? alacak { get; set; } = 0;
+        public decimal? borc { get; set; } = 0;
+      
     }
 }

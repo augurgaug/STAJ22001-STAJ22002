@@ -2,12 +2,12 @@ namespace MyApi.Finances
 {
     public class Finance
     {
-        public int FinanceId { get; set; }
-        public int? CariId { get; set; }
-        public string? OdemeTipi { get; set; }
-        public float? Miktar { get; set; }
-        public string? Aciklama { get; set; }
-        public string? Tarih { get; set; }
+        public int id { get; set; }
+        public int? cari_id { get; set; }
+        public string? odeme_tipi { get; set; }
+        public decimal? miktar { get; set; }
+        public string? aciklama { get; set; }
+        public DateTime? tarih { get; set; }
 
     }
 }

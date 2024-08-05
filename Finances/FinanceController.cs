@@ -25,7 +25,7 @@ namespace MyApi.Finances
             {
                 return BadRequest(new { message = "Ýþlem bulunamadý." });
             }
-            return CreatedAtAction(nameof(GetFinanceById), new { id = newFinance.FinanceId }, newFinance);
+            return CreatedAtAction(nameof(GetFinanceById), new { id = newFinance.id }, newFinance);
         }
 
         [HttpGet]
@@ -35,6 +35,19 @@ namespace MyApi.Finances
             return Ok(finances);
         }
 
-       
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Finance>> GetPaymentById(int id)
+        {
+            var finance = await _financeService.GetFinanceById(id);
+            if (finance == null)
+            {
+                return NotFound();
+            }
+            return Ok(finance);
+        }
+
+
+
     }
 }

@@ -35,7 +35,7 @@ namespace MyApi.Business.FinanceServ
         public async Task<Finance?> GetFinanceById(int id)
         {
             return await _context.Finances
-                                 .FirstOrDefaultAsync(p => p.FinanceId == id);
+                                 .FirstOrDefaultAsync(f => f.id == id);
         }
 
     }

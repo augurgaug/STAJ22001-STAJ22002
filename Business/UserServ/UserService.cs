@@ -19,7 +19,7 @@ namespace MyApi.Business.UserServ
 
         public async Task<User?> PostUser(User user)
         {
-            var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.UserName == user.UserName);
+            var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.user_name == user.user_name);
             if (existingUser != null)
             {
                 return null;
@@ -38,14 +38,14 @@ namespace MyApi.Business.UserServ
         public async Task<User?> Login(User loginUser)
         {
             var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.UserName == loginUser.UserName && u.Password == loginUser.Password);
+                .FirstOrDefaultAsync(u => u.user_name == loginUser.user_name && u.password == loginUser.password);
             return user ?? null;
         }
 
         public async Task<User?> Forgot(User forgotUser)
         {
             var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.Email == forgotUser.Email);
+                .FirstOrDefaultAsync(u => u.email == forgotUser.email);
             return user ?? null;
         }
 
