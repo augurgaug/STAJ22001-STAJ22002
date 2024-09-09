@@ -98,6 +98,11 @@ namespace MyApi.Business.CariServ
             return true;
         }
 
+        public async Task<int> GetCarisCount()
+        {
+            return await _context.Caris.CountAsync();
+        }
+
 
     }
 }

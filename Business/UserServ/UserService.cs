@@ -54,5 +54,34 @@ namespace MyApi.Business.UserServ
         {
             return await _context.Users.ToListAsync();
         }
+
+        public async Task<int> GetUsersCount()
+        {
+            return await _context.Users.CountAsync();
+        }
+
+     
+
+
+
+        public async Task<bool> UpdateUserr(int id, User updatedUserr)
+        {
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
+            {
+                return false;
+            }
+
+
+            user.push_token = updatedUserr.push_token;
+
+
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+
+
     }
 }

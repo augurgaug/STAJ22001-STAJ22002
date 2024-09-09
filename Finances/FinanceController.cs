@@ -47,6 +47,48 @@ namespace MyApi.Finances
             return Ok(finance);
         }
 
+        [HttpGet("count")]
+        public async Task<ActionResult<int>> GetFinancesCount()
+        {
+            var count = await _financeService.GetFinancesCount();
+            return Ok(count);
+        }
+        [HttpGet("count/nakitodeme")]
+        public async Task<ActionResult<int>> GetFinancesNOCount()
+        {
+            var count = await _financeService.GetFinancesNOCount();
+            return Ok(count);
+        }
+        [HttpGet("count/nakittahsilat")]
+        public async Task<ActionResult<int>> GetFinancesNTCount()
+        {
+            var count = await _financeService.GetFinancesNTCount();
+            return Ok(count);
+        }
+        [HttpGet("count/gidenhavale")]
+        public async Task<ActionResult<int>> GetFinancesGiHCount()
+        {
+            var count = await _financeService.GetFinancesGiHCount();
+            return Ok(count);
+        }
+        [HttpGet("count/gelenhavale")]
+        public async Task<ActionResult<int>> GetFinancesGeHCount()
+        {
+            var count = await _financeService.GetFinancesGeHCount();
+            return Ok(count);
+        }
+        [HttpGet("count/postahsilat")]
+        public async Task<ActionResult<int>> GetFinancesPTCount()
+        {
+            var count = await _financeService.GetFinancesPTCount();
+            return Ok(count);
+        }
+        [HttpGet("count/kkodeme")]
+        public async Task<ActionResult<int>> GetFinancesKKCount()
+        {
+            var count = await _financeService.GetFinancesKKCount();
+            return Ok(count);
+        }
 
 
     }

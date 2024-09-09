@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyApi.Data;
 
@@ -11,9 +12,11 @@ using MyApi.Data;
 namespace MyApi.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240819135115_AddFinanceCariRelationshipupdatefinances")]
+    partial class AddFinanceCariRelationshipupdatefinances
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,13 +121,7 @@ namespace MyApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("id"));
 
-                    b.Property<string>("birth_date")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("gender")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("last_name")
@@ -134,9 +131,6 @@ namespace MyApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("push_token")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("user_name")

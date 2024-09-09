@@ -80,5 +80,12 @@ namespace MyApi.Caris
             }
             return NoContent();
         }
+
+        [HttpGet("count")]
+        public async Task<ActionResult<int>> GetCarisCount()
+        {
+            var count = await _cariService.GetCarisCount();
+            return Ok(count);
+        }
     }
 }

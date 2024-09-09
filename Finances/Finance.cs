@@ -1,3 +1,5 @@
+using MyApi.Caris;
+
 namespace MyApi.Finances
 {
     public class Finance
@@ -8,6 +10,8 @@ namespace MyApi.Finances
         public decimal? miktar { get; set; }
         public string? aciklama { get; set; }
         public DateTime? tarih { get; set; }
+
+        public Cari? Cari { get; set; }
 
     }
 }

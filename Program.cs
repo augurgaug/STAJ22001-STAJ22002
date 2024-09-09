@@ -7,6 +7,18 @@ using MyApi.Business.FinanceServ;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+serverOptions.Listen(System.Net.IPAddress.Any, 5000); 
+
+//serverOptions.ListenLocalhost(5000); 
+//serverOptions.Listen(System.Net.IPAddress.Parse("192.168.1.108"), 5000); 
+
+});
+
+
+
+
 
 builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

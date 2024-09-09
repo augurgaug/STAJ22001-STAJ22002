@@ -24,6 +24,14 @@ namespace MyApi.Data
 
 
 
+            modelBuilder.Entity<Finance>()
+              .HasOne(f => f.Cari)
+              .WithMany()
+              .HasForeignKey(f => f.cari_id)
+              .OnDelete(DeleteBehavior.Cascade);
+
+
+
             modelBuilder.Entity<Cari>()
                 .Property(c => c.borc )
                 .HasColumnType("decimal(18, 8)");
@@ -33,5 +41,7 @@ namespace MyApi.Data
                 .HasColumnType("decimal(18, 8)");
 
         }
+
+   
     }
 }

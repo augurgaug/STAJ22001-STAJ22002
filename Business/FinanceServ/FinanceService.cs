@@ -28,14 +28,58 @@ namespace MyApi.Business.FinanceServ
 
         public async Task<List<Finance>> GetFinances()
         {
-            return await _context.Finances.ToListAsync();
+            // return await _context.Finances.ToListAsync();
+
+            return await _context.Finances
+                       .Include(f => f.Cari) 
+                       .ToListAsync();
         }
 
 
         public async Task<Finance?> GetFinanceById(int id)
         {
             return await _context.Finances
+                                  .Include(f => f.Cari)
+
                                  .FirstOrDefaultAsync(f => f.id == id);
+        }
+
+
+
+
+        public async Task<int> GetFinancesCount()
+        {
+            return await _context.Finances.CountAsync();
+        }
+
+        public async Task<int> GetFinancesNOCount()
+        {
+            return await _context.Finances.CountAsync(f => f.odeme_tipi == "Nakit Ödeme");
+        }
+
+        public async Task<int> GetFinancesNTCount()
+        {
+            return await _context.Finances.CountAsync(f => f.odeme_tipi == "Nakit Tahsilat");
+        }
+
+        public async Task<int> GetFinancesGiHCount()
+        {
+            return await _context.Finances.CountAsync(f => f.odeme_tipi == "Giden Havale");
+        }
+
+        public async Task<int> GetFinancesGeHCount()
+        {
+            return await _context.Finances.CountAsync(f => f.odeme_tipi == "Gelen Havale");
+        }
+
+        public async Task<int> GetFinancesKKCount()
+        {
+            return await _context.Finances.CountAsync(f => f.odeme_tipi == "Kredi Kartý Ýle Ödeme");
+        }
+
+        public async Task<int> GetFinancesPTCount()
+        {
+            return await _context.Finances.CountAsync(f => f.odeme_tipi == "Pos Tahsilat");
         }
 
     }

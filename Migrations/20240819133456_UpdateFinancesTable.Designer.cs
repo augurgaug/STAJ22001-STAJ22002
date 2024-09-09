@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyApi.Data;
 
@@ -11,9 +12,11 @@ using MyApi.Data;
 namespace MyApi.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240819133456_UpdateFinancesTable")]
+    partial class UpdateFinancesTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,6 +91,9 @@ namespace MyApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
+                    b.Property<int?>("Cariid")
+                        .HasColumnType("int");
+
                     b.Property<string>("aciklama")
                         .HasColumnType("nvarchar(max)");
 
@@ -105,7 +111,7 @@ namespace MyApi.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("cari_id");
+                    b.HasIndex("Cariid");
 
                     b.ToTable("Finances");
                 });
@@ -118,13 +124,7 @@ namespace MyApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("id"));
 
-                    b.Property<string>("birth_date")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("gender")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("last_name")
@@ -134,9 +134,6 @@ namespace MyApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("push_token")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("user_name")
@@ -151,8 +148,7 @@ namespace MyApi.Migrations
                 {
                     b.HasOne("MyApi.Caris.Cari", "Cari")
                         .WithMany()
-                        .HasForeignKey("cari_id")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("Cariid");
 
                     b.Navigation("Cari");
                 });

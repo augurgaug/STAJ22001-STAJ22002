@@ -71,5 +71,28 @@ namespace MyApi.Users
             var users = await _userService.GetUsers();
             return Ok(users);
         }
+        [HttpGet("count")]
+        public async Task<ActionResult<int>> GetUsersCount()
+        {
+            var count = await _userService.GetUsersCount();
+            return Ok(count);
+        }
+   
+
+
+
+
+        [HttpPut("userr/{id}")]
+        public async Task<IActionResult> UpdateUserr(int id, User updatedUserr)
+        {
+            var result = await _userService.UpdateUserr(id, updatedUserr);
+            if (!result)
+            {
+                return NotFound();
+            }
+            return NoContent();
+        }
+
+
     }
 }
